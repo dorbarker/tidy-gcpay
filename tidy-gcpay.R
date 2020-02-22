@@ -36,7 +36,7 @@ read_pay_table <- function(input_path) {
 
 tidy_pay <- function(original_table) {
 
-    clean_dollar_values <- compose(~ gsub('[\\$,]', '', .), as.numeric)
+    clean_dollar_values <- compose(as.numeric, ~ gsub('[\\$,]', '', .))
     
     tidy_table <-
         original_table %>%
@@ -56,6 +56,7 @@ tidy_pay <- function(original_table) {
             net            = clean_dollar_values(net)
         )
         
+    tidy_table
 }
 
 write_pay_table <- function(output_path, tidy_table) {

@@ -1,11 +1,15 @@
-library(tibble)
-library(readxl)
-library(readr)
-library(tidyr)
-library(optparse)
-library(purrr)
-library(dplyr)
-library(lubridate)
+#!/usr/bin/env Rscript
+
+suppressPackageStartupMessages({
+    library(readxl)
+    library(readr)
+    library(tidyr)
+    library(optparse)
+    library(purrr)
+    library(dplyr)
+    library(lubridate)
+})
+
 
 
 get_options <- function() {

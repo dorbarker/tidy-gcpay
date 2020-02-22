@@ -1,5 +1,6 @@
 library(tibble)
 library(readxl)
+library(readr)
 library(tidyr)
 library(optparse)
 library(purrr)
@@ -7,7 +8,7 @@ library(dplyr)
 library(lubridate)
 
 
-Gget_options <- function() {
+get_options <- function() {
     
     OptionParser() %>%
         
@@ -59,15 +60,19 @@ tidy_pay <- function(original_table) {
     tidy_table
 }
 
-write_pay_table <- function(output_path, tidy_table) {
+write_pay_table <- function(tidy_table, output_path) {
     
+    write_tsv(tidy_table, output_path)
 }
 
 main <- function() {
     
     args <- get_options()
     
-    original_table <- read_pay_table(args$input)
+    read_pay_table(args$input) %>%
+    tidy_pay %>%
+    write_pay_table(args$output)
+
 }
 
 main()

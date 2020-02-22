@@ -7,7 +7,7 @@ I made this on my own time, and it is **not** an official work of the Government
 # How do I use this?
 
 ```
-R -e "install.packages('tidyverse')"  # Install tidyverse if you don't have it
+R -e "install.packages(c('tidyverse', 'optparse')"  # Install tidyverse and optparse if you don't have them
 Rscript tidy-gcpay.R -i "Paycheck history.xlsx" -o paycheque_history.tsv
 ```
 
